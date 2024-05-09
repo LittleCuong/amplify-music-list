@@ -10,7 +10,8 @@ const schema = a.schema({
   FavouriteMusic: a
     .model({
       name: a.string(),
-      author: a.string()
+      author: a.string(),
+      album: a.string()
     })
     .authorization((allow) => [allow.guest()]),
 });

@@ -49,6 +49,7 @@ function App() {
         <form className='music-form'>
           <input className='music-form--input' name="name" onChange={(e) => handleOnChange(e)} placeholder='Name music'/>
           <input className='music-form--input' name="author" onChange={(e) => handleOnChange(e)} placeholder='Author'/>
+          <input className='music-form--input' name="album" onChange={(e) => handleOnChange(e)} placeholder='Album'/>
         </form>
         <button onClick={addMusic}>
           Add music
@@ -61,6 +62,7 @@ function App() {
               <div className="music-details">
                 <h2 className="music-name">{music.name}</h2>
                 <p className="music-author">{music.author}</p>
+                <h2 className="music-name">{music.album}</h2>
               </div>
             </li>
           ))
