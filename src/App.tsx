@@ -63,13 +63,14 @@ function App() {
               <div className="music-details">
                 <h2 className="music-name">{music.name}</h2>
                 <p className="music-author">{music.author}</p>
-                <h2 className="music-name">{music.album}</h2>
               </div>
+              <p className="music-name">{music.album}</p>
             </li>
           ))
         }
         </ul>
       </div>
+
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
