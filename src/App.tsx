@@ -25,11 +25,12 @@ function App() {
   }
 
   const addMusic = () => {
-    const { name, author } = inputForm    
+    const { name, author, album } = inputForm    
     if (name && author) {
       client.models.FavouriteMusic.create({ 
         name: name,
-        author: author
+        author: author,
+        album: album
       })
     }
   }
