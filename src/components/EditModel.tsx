@@ -6,14 +6,21 @@ import '../App.css'
 
 const client = generateClient<Schema>()
 
+interface Song {
+    id: string;
+    name: string;
+    author: string;
+    album: string;
+}
+
 function EditModal(
     { editMode, updatedSong }: { 
         editMode: (isDisplayed: boolean) => void; 
-        updatedSong: { id: string; name: string; author: string; album: string}
+        updatedSong: Song
     }
 ) {
 
-    const [updateValue, setUpdateValue] = useState<Object>({
+    const [updateValue, setUpdateValue] = useState<Song>({
         id: updatedSong.id,
         name: updatedSong.name,
         author: updatedSong.author,
