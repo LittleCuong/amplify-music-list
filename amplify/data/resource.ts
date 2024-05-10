@@ -13,7 +13,7 @@ const schema = a.schema({
       author: a.string().required(),
       album: a.string().required()
     })
-    .authorization((allow) => [allow.guest()]),
+    .authorization((allow) => [allow.publicApiKey()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;

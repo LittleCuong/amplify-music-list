@@ -4,9 +4,7 @@ import { generateClient } from "aws-amplify/api";
 import { type Schema } from '../../amplify/data/resource';
 import '../App.css'
 
-const client = generateClient<Schema>({
-    authMode: 'apiKey'
-});
+const client = generateClient<Schema>();
 
 interface Song {
     id: string;
