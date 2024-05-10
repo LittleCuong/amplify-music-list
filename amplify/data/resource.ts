@@ -9,9 +9,9 @@ and "delete" any "Todo" records.
 const schema = a.schema({
   FavouriteMusic: a
     .model({
-      name: a.string(),
-      author: a.string(),
-      album: a.string()
+      name: a.string().required(),
+      author: a.string().required(),
+      album: a.string().required()
     })
     .authorization((allow) => [allow.guest()]),
 });

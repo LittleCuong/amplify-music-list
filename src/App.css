@@ -5,20 +5,23 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.container {
+  display: flex;
+  justify-content: space-around;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.card {
+  width: 100%;
+  padding: 2em;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.card-form {
+  border-right: 1px solid black;
 }
 
 .music-form {
+  width: 40%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
@@ -29,59 +32,152 @@
   border-radius: 6px;
 }
 
+.add-button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 0.2s linear;
+}
+
+.add-button:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
 .music-list {
   list-style-type: none;
   padding: 0;
 }
 
 .music-item {
+  padding: 10px 10px;
+  margin-bottom: 6px;
   border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+  border: 6px;
+  transition: all .2s linear;
+}
+
+.music-item:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .music-details {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
 .music-name {
   margin: 0;
+  text-align: left;
   font-size: 1.2em;
   color: #333;
 }
 
 .music-author {
-  margin: 0;
+  margin: 0 0 0 10px;
   font-size: 1em;
   color: #666;
 }
 
 .music-album {
   margin: 0;
-  font-size: 1em;
+  font-size: 0.8em;
+  font-weight: 700;
+  text-align: left;
   color: #666;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all .2s linear;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.icon {
+  transition: all .2s linear;
 }
 
-.card {
-  width: 600px;
-  padding: 2em;
+.edit-button:hover {
+  background-color: rgba(238, 238, 250, 0.6);
 }
 
-.read-the-docs {
-  color: #888;
+.edit-button:hover .edit-icon {
+  color: blueviolet;
+}
+
+.delete-button:hover .delete-icon {
+  color: red;
+}
+
+/* Edit modal */
+.modal {
+  /* display: none; */
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fefefe;
+  margin: 10% auto 0 auto;
+  padding: 20px;
+  border-radius: 6px;
+  width: 30%;
+  height: 50%;
+}
+
+.edit-modal--input {
+  width: 80%;
+  margin: 12px 0;
+  padding: 14px 10px;
+  border-radius: 6px;
+  border-color: rgba(0, 0, 0, .2);
+  outline: none;
+}
+
+.modal-button {
+  padding: 10px 20px;
+  margin: 2px 10px;
+  border-radius: 4px;
+}
+
+.save-button {
+  background-color: blueviolet;
+  transition: all .2s linear;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.save-button:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+
+.exit-button {
+  background-color: red;
+  transition: all .2s linear;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.exit-button:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
 }

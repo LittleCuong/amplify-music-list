@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "../amplify/data/resource";
 import './App.css'
+import MusicItem from './components/MusicItem';
 
-const client = generateClient<Schema>() // use this Data client for CRUDL requests
-
+const client = generateClient<Schema>()
 
 function App() {  
   const [inputForm, setInputForm] = useState<{ [key: string]: string }>({});
@@ -37,43 +35,28 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='container'>
+        <div className="card card-form">
+          <form className='music-form'>
+            <input className='music-form--input' name="name" onChange={(e) => handleOnChange(e)} placeholder='Name music'/>
+            <input className='music-form--input' name="author" onChange={(e) => handleOnChange(e)} placeholder='Author'/>
+            <input className='music-form--input' name="album" onChange={(e) => handleOnChange(e)} placeholder='Album'/>
+          </form>
+          <button className='add-button' onClick={addMusic}>
+            Add music
+          </button>
+        </div>
+        <div className="card">
+            <h3 style={{margin: 0, fontSize: '20px'}}>My music</h3>
+            <ul className="music-list">
+            {
+              favouriteMusic.map((music) => (
+                <MusicItem key={music.id} songData={music}/>
+              ))
+            }
+            </ul>
+          </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <form className='music-form'>
-          <input className='music-form--input' name="name" onChange={(e) => handleOnChange(e)} placeholder='Name music'/>
-          <input className='music-form--input' name="author" onChange={(e) => handleOnChange(e)} placeholder='Author'/>
-          <input className='music-form--input' name="album" onChange={(e) => handleOnChange(e)} placeholder='Album'/>
-        </form>
-        <button onClick={addMusic}>
-          Add music
-        </button>
-        <h3>My music</h3>
-        <ul className="music-list">
-        {
-          favouriteMusic.map((music) => (
-            <li key={music.id} className="music-item">
-              <div className="music-details">
-                <h2 className="music-name">{music.name}</h2>
-                <p className="music-author">{music.author}</p>
-              </div>
-              <p className="music-name">{music.album}</p>
-            </li>
-          ))
-        }
-        </ul>
-      </div>
-
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
