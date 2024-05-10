@@ -39,7 +39,10 @@ function App() {
     <Authenticator>
       {({ signOut, user }) => (
           <>
-            <h3>Hello {user?.username}</h3>
+            <div>
+              <h3>Hello {user?.username}</h3>
+              <button onClick={signOut}>Sign out</button>
+            </div>
             <div className='container'>
               <div className="card card-form">
                 <form className='music-form'>
