@@ -4,7 +4,9 @@ import { generateClient } from "aws-amplify/api";
 import { type Schema } from '../../amplify/data/resource';
 import '../App.css'
 
-const client = generateClient<Schema>();
+const client = generateClient<Schema>({
+    authMode: 'userPool'
+});
 
 interface Song {
     id: string;
