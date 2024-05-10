@@ -7,7 +7,7 @@ import { useState } from "react";
 import EditModal from "./EditModel";
 
 const client = generateClient<Schema>({
-    authMode: 'userPool'
+    authMode: 'apiKey'
 });
 function MusicItem({ songData }: { songData: { id: string; name: string, author: string; album: string } } ) {
     

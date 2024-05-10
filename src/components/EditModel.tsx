@@ -5,7 +5,7 @@ import { type Schema } from '../../amplify/data/resource';
 import '../App.css'
 
 const client = generateClient<Schema>({
-    authMode: 'userPool'
+    authMode: 'apiKey'
 });
 
 interface Song {

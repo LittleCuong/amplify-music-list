@@ -7,7 +7,7 @@ import '@aws-amplify/ui-react/styles.css';
 import MusicItem from './components/MusicItem';
 
 const client = generateClient<Schema>({
-  authMode: 'userPool'
+  authMode: 'apiKey'
 });
 
 function App() {  
