@@ -6,9 +6,7 @@ import './App.css'
 import '@aws-amplify/ui-react/styles.css';
 import MusicItem from './components/MusicItem';
 
-const client = generateClient<Schema>({
-  authMode: 'apiKey',
-});
+const client = generateClient<Schema>();
 
 function App() {  
   const [inputForm, setInputForm] = useState<{ [key: string]: string }>({});
