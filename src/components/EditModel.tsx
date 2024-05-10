@@ -53,7 +53,7 @@ function EditModal(
         <Fragment>
             <div className="modal">
                 <div className="modal-content">
-                    <h2>UPDATE SONG</h2>
+                    <h2 style={{margin: 0}}>UPDATE SONG</h2>
                     <input onChange={(e) => handleOnChange(e)} defaultValue={updatedSong.name} className='edit-modal--input' type="text" name="name" placeholder="Song Name"/>
                     <input onChange={(e) => handleOnChange(e)} defaultValue={updatedSong.author} className='edit-modal--input' type="text" name="author" placeholder="Author"/>
                     <input onChange={(e) => handleOnChange(e)} defaultValue={updatedSong.album} className='edit-modal--input' type="text" name="album" placeholder="Album Songs"/>
