@@ -6,7 +6,9 @@ import { type Schema } from '../../amplify/data/resource';
 import { useState } from "react";
 import EditModal from "./EditModel";
 
-const client = generateClient<Schema>()
+const client = generateClient<Schema>({
+    authMode: 'apiKey',
+  });
 
 function MusicItem({ songData }: { songData: { id: string; name: string, author: string; album: string } } ) {
     
