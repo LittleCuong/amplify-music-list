@@ -1,10 +1,14 @@
 import { Fragment } from "react/jsx-runtime";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
+import { generateClient } from "aws-amplify/api";
+import { type Schema } from '../../amplify/data/resource';
 import { useState } from "react";
 import EditModal from "./EditModel";
 
-function MusicItem({ songData }: { songData: { id: string; name: string, author: string; album: string; createdAt: string; updatedAt: string } } ) {
+const client = generateClient<Schema>()
+
+function MusicItem({ songData }: { songData: { id: string; name: string, author: string; album: string } } ) {
     
     const [edit, setEdit] = useState<Boolean>(false)
 
@@ -12,7 +16,11 @@ function MusicItem({ songData }: { songData: { id: string; name: string, author:
         setEdit(isDisplayed)
     }
 
-    const handleDelete = () => {}
+    const handleDelete = (id: string) => {
+        client.models.FavouriteMusic.delete({
+            id: id
+        })
+    }
 
     return (
         <Fragment>
@@ -27,7 +35,7 @@ function MusicItem({ songData }: { songData: { id: string; name: string, author:
                         <button onClick={() => handleEdit(!edit)} className='icon-button edit-button'>
                             <FontAwesomeIcon className='icon edit-icon' icon={faPenToSquare} />
                         </button>
-                        <button onClick={() => handleDelete()} className='icon-button delete-button'>
+                        <button onClick={() => handleDelete(songData.id)} className='icon-button delete-button'>
                             <FontAwesomeIcon className='icon delete-icon' icon={faDeleteLeft} />
                         </button>
                     </div>

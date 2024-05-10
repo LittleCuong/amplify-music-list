@@ -9,7 +9,7 @@ const client = generateClient<Schema>()
 function EditModal(
     { editMode, updatedSong }: { 
         editMode: (isDisplayed: boolean) => void; 
-        updatedSong: { id: string; name: string; author: string; album: string; createdAt: string; updatedAt: string }
+        updatedSong: { id: string; name: string; author: string; album: string}
     }
 ) {
 
@@ -25,7 +25,17 @@ function EditModal(
     }
 
     const handleUpdate = async() => {
-        await client.models.FavouriteMusic.update(updatedSong)
+        try {
+            await client.models.FavouriteMusic.update({
+                id: updateValue.id,
+                name: updateValue.name,
+                author: updateValue.author,
+                album: updateValue.album,
+            })
+            editMode(false)
+        } catch (error) {
+            console.error();
+        }   
     }
 
     const handleExitEdit = () => {
